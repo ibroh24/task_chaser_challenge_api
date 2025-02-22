@@ -57,6 +57,5 @@ module.exports = (sequelize, DataTypes) => {
   // }).catch((error) => {
   //   console.error('Unable to create table : ', error);
   // });
-// ALTER TABLE `users` CHANGE `created_at` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, CHANGE `updated_at` `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
   return User;
 };
