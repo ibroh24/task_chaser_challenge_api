@@ -6,17 +6,28 @@ const Product = require("../models").Product;
 class CartService {
   async getOrCreateCart(userId) {
     const [cart] = await Cart.findOrCreate({
-      where: { user_id: userId }
+      where: { user_id: userId },
+      include: [{
+        model: CartItem,
+        as: 'CartItems', 
+        include: ['Product'] 
+      }]
     });
+    return cart;
+  }
+//   async getOrCreateCart(userId) {
+//     const [cart] = await Cart.findOrCreate({
+//       where: { user_id: userId }
+//     });
 
-    // Fetch the cart again with the included CartItems
-    const fullCart = await Cart.findOne({
-      where: { id: cart.id },
-      include: [{ model: CartItem }]
-    });
+//     // Fetch the cart again with the included CartItems
+//     const fullCart = await Cart.findOne({
+//       where: { id: cart.id },
+//       include: [{ model: CartItem }]
+//     });
 
-    return fullCart;
-}
+//     return fullCart;
+// }
 
   async addItemToCart(userId, productId, quantity = 1) {
     const cart = await this.getOrCreateCart(userId);

@@ -3,8 +3,11 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
     static associate(models) {
-      this.belongsTo(models.User, { foreignKey: "user_id" });
-      this.hasMany(models.CartItem, { foreignKey: "cart_id", as: "CartItems" }); 
+      this.belongsTo(models.User, { foreignKey: 'user_id' });
+      this.hasMany(models.CartItem, { 
+        foreignKey: 'cart_id', // Match the field name in CartItem
+        as: 'CartItems' // Explicit alias for consistency
+      });
     }
   }
   Cart.init({

@@ -1,13 +1,14 @@
 # Task Chaser API
 
-This module provides functionality for managing an e-commerce platform. It includes features for handling products, customers, orders, and payments.
+This module provides functionality for managing an e-commerce platform. It includes features for handling products, customers, orders, and cart information.
 
 ## Features
 
 - **Product Management**: Add, update, delete, and retrieve product information.
 - **Customer Management**: Register, update, delete, and retrieve customer details.
 - **Order Management**: Create, update, delete, and retrieve order information.
-- **Payment Processing**: Handle payment transactions and manage payment statuses.
+- **Email Notifications**: Send email notifications to users regarding their orders.
+- **Cart Management**: Handle cart information and manage cart statuses.
 
 ## Database
 
