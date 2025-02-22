@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('bugga:server');
+var debug = require('debug')('tast_chaser_backend:server');
 var http = require('http');
 
 /**
