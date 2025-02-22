@@ -1,0 +1,95 @@
+@baseUrl = http://localhost:3000/api/v1
+@contentType = application/json
+@authToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQwMjQ1ODM1LCJleHAiOjE3NDAzMzIyMzV9.bR2Pzt15L1NOZTp5JOEt_wgSrqMNNsBC9C63s61onh0
+
+### User Registration
+POST {{baseUrl}}/auth/register HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "name": "John Doe",
+  "email": "ibroh24@gmail.com",
+  "phone": "07063543872",
+  "address": "iyana ontario",
+  "password": "IcanTT3llyouMyPa$$word"
+}
+
+### User Login
+# @name login
+POST {{baseUrl}}/auth/login HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "email": "ibroh24@gmail.com",
+  "password": "IcanTT3llyouMyPa$$word"
+}
+
+### Category Management
+
+## Create Category
+POST {{baseUrl}}/category/add-category HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "name": "Electronics",
+  "description": "Electronic devices and gadgets"
+}
+
+
+### Get All Categories
+GET {{baseUrl}}/category/categories HTTP/1.1
+
+
+
+### Product Management
+
+### Create Product
+POST {{baseUrl}}/product/add-product HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "name": "Techno Spark 7",
+  "description": "smartphone",
+  "price": 55.99,
+  "stock_quantity": 100,
+  "category_id": 1
+}
+
+
+### Get All Products
+GET {{baseUrl}}/product/products HTTP/1.1
+
+
+### Get Single Product
+GET {{baseUrl}}/product/get-product/1 HTTP/1.1
+
+
+### Cart Management
+
+### Add to Cart
+POST {{baseUrl}}/cart/add-cart HTTP/1.1
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+  "productId": 2,
+  "quantity": 2
+}
+
+
+### View Cart
+GET {{baseUrl}}/cart/carts HTTP/1.1
+Authorization: Bearer {{authToken}}
+
+
+### Remove from Cart
+DELETE {{baseUrl}}/cart/remove-cart/1 HTTP/1.1
+Authorization: Bearer {{authToken}}
+
+
+
+### Order Management
+
+## Create Order
+POST {{baseUrl}}/order/checkout HTTP/1.1
+Authorization: Bearer {{authToken}}

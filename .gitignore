@@ -1,0 +1,4 @@
+node_modules/
+tmpnodejsnpm-cache/
+.env
+# config/
